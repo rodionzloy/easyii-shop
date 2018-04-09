@@ -51,6 +51,10 @@
             "url": "https://github.com/rodionzloy/easyii"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/rodionzloy/easyii-shop"
+        },
+        {
             "type": "composer",
             "url": "https://asset-packagist.org"
         }
