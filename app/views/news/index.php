@@ -7,6 +7,9 @@ use yii\helpers\Url;
 $page = Page::get('page-news');
 
 $this->title = $page->seo('title', $page->model->title);
+$this->params['keywords'] = $page->seo('keywords');
+$this->params['description'] = $page->seo('description');
+
 $this->params['breadcrumbs'][] = $page->model->title;
 ?>
 <h1><?= $page->seo('h1', $page->title) ?></h1>

@@ -7,6 +7,8 @@ use yii\helpers\Url;
 $page = Page::get('page-shopcart');
 
 $this->title = $page->seo('title', $page->model->title);
+$this->params['description'] = $page->seo('description');
+
 $this->params['breadcrumbs'][] = $page->model->title;
 ?>
 <h1><?= $page->seo('h1', $page->title) ?></h1>
@@ -58,7 +60,7 @@ $this->params['breadcrumbs'][] = $page->model->title;
         <div class="col-md-4 col-md-offset-2">
             <h4>Checkout</h4>
             <div class="well well">
-                <?= Shopcart::form(['successUrl' => Url::to('/shopcart/success')])?>
+                <?= Shopcart::form(['successUrl' => Url::to(['/shopcart/success'])])?>
             </div>
         </div>
     </div>

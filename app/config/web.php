@@ -5,17 +5,23 @@ $params = require(__DIR__ . '/params.php');
 $basePath =  dirname(__DIR__);
 $webroot = dirname($basePath);
 
+Yii::setAlias('@uploads', $webroot . DIRECTORY_SEPARATOR . 'uploads');
+
 $config = [
     'id' => 'app',
     'basePath' => $basePath,
     'bootstrap' => ['log'],
-    'language' => 'en-US',
+    'language' => 'ru-RU',
     'runtimePath' => $webroot . '/runtime',
     'vendorPath' => $webroot . '/vendor',
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => 'Rn22Vj4TEZto33FoKQxRkiFmnseG6Hem',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -25,6 +31,7 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => true
         ],
         'urlManager' => [
             'rules' => [
@@ -73,4 +80,4 @@ if (YII_ENV_DEV) {
     $config['components']['db']['enableSchemaCache'] = false;
 }
 
-return array_merge_recursive($config, require($webroot . '/vendor/noumo/easyii/config/easyii.php'));
+return array_merge_recursive($config, require($webroot . '/vendor/rodionzloy/easyii/config/easyii.php'));
